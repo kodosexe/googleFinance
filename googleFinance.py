@@ -1,6 +1,6 @@
 ##########################
 #     Author: kodos      #
-#   Date: Feb 29, 2021   #
+#   Date: Feb 9, 2021   #
 # Purpose: Stock Trading #
 #  email:info@kodos.dev  #
 ##########################
