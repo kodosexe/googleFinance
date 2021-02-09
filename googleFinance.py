@@ -15,7 +15,7 @@ from selenium.webdriver import ActionChains
 def makeString(asset):
     return "https://www.google.com/search?q=" + asset
 
-# Builtin Sanity check:
+# Builtin Sanity check (NOT IMPLEMENTED YET):
 #
 # Code -1 Asset doesn't exist
 # Code -2 Failed getting the page
