@@ -23,20 +23,34 @@ def makeString(asset):
 # Code -4 Price given as zero
 # Anything >0 Price
 def getStockPrice(sign):
-    searchLink = makeString(sign)
+    try:
+        searchLink = makeString(sign)
 
-    # Set up ChromeOptions
-    opt = webdriver.ChromeOptions()
-    opt.set_headless()
-    opt.add_argument("--window-size=1920,1080")
-    opt.add_argument("--disable-gpu")
+        # Set up ChromeOptions
+        opt = webdriver.ChromeOptions()
+        opt.set_headless()
+        opt.add_argument("--window-size=1920,1080")
+        opt.add_argument("--disable-gpu")
 
-    # Initialize browser, and go to link
-    browser = webdriver.Chrome(chrome_options=opt)
-    browser.get(searchLink)
+        try:
+            # Initialize browser, and go to link
+            browser = webdriver.Chrome(chrome_options=opt)
+            browser.get(searchLink)
+        except:
+            return -2
 
-    # Inject Chrome console command retrieve data
-    js = 'return document.getElementsByClassName("IsqQVc NprOob XcVN5d")[0].innerText'
-    data = browser.execute_script(js)
+        try:
+            # In    ject Chrome console command retrieve data
+            js = 'return document.getElementsByClassName("IsqQVc NprOob XcVN5d")[0].innerText'
+            data = browser.execute_script(js)
+        except:
+            return -2
 
-    return data
+        if data > 0:
+            return data
+        elif data == 0:
+            return -4
+        else:
+            return -1
+    except:
+        return -3
